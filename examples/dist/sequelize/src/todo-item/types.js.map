@@ -1,0 +1,1 @@
+{"version":3,"file":"types.js","sourceRoot":"","sources":["../../../../sequelize/src/todo-item/types.ts"],"names":[],"mappings":";;;;AAAA,+DAA4D;AAC5D,6CAA2C;AAC3C,uDAAkD;AAGlD,IAAa,aAAa,GAA1B,MAAa,aAAc,SAAQ,IAAA,6BAAa,EAAC,2BAAW,CAAC;CAAG,CAAA;AAAnD,aAAa;IADzB,IAAA,kBAAQ,GAAE;GACE,aAAa,CAAsC;AAAnD,sCAAa;AAEb,QAAA,kBAAkB,GAAG,aAAa,CAAC,cAAc,CAAC"}

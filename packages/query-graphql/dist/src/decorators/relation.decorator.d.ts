@@ -1,0 +1,16 @@
+import { ArrayReflector, Class } from '@nestjs-query/core';
+import { RelationsOpts, ResolverRelation } from '../resolvers/relations';
+import { BaseResolverOptions } from './resolver-method.decorator';
+export declare const reflector: ArrayReflector;
+export declare type RelationDecoratorOpts<Relation> = Omit<ResolverRelation<Relation>, 'DTO'>;
+export declare type RelationTypeFunc<Relation> = () => Class<Relation>;
+export declare type RelationClassDecorator<DTO> = <Cls extends Class<DTO>>(DTOClass: Cls) => Cls | void;
+export declare function getRelations<DTO>(DTOClass: Class<DTO>, opts?: BaseResolverOptions): RelationsOpts;
+export declare const Relation: <DTO, Relation>(name: string, relationTypeFunc: RelationTypeFunc<Relation>, options?: RelationDecoratorOpts<Relation> | undefined) => RelationClassDecorator<DTO>;
+export declare const FilterableRelation: <DTO, Relation>(name: string, relationTypeFunc: RelationTypeFunc<Relation>, options?: RelationDecoratorOpts<Relation> | undefined) => RelationClassDecorator<DTO>;
+export declare const UnPagedRelation: <DTO, Relation>(name: string, relationTypeFunc: RelationTypeFunc<Relation>, options?: RelationDecoratorOpts<Relation> | undefined) => RelationClassDecorator<DTO>;
+export declare const FilterableUnPagedRelation: <DTO, Relation>(name: string, relationTypeFunc: RelationTypeFunc<Relation>, options?: RelationDecoratorOpts<Relation> | undefined) => RelationClassDecorator<DTO>;
+export declare const OffsetConnection: <DTO, Relation>(name: string, relationTypeFunc: RelationTypeFunc<Relation>, options?: RelationDecoratorOpts<Relation> | undefined) => RelationClassDecorator<DTO>;
+export declare const FilterableOffsetConnection: <DTO, Relation>(name: string, relationTypeFunc: RelationTypeFunc<Relation>, options?: RelationDecoratorOpts<Relation> | undefined) => RelationClassDecorator<DTO>;
+export declare const CursorConnection: <DTO, Relation>(name: string, relationTypeFunc: RelationTypeFunc<Relation>, options?: RelationDecoratorOpts<Relation> | undefined) => RelationClassDecorator<DTO>;
+export declare const FilterableCursorConnection: <DTO, Relation>(name: string, relationTypeFunc: RelationTypeFunc<Relation>, options?: RelationDecoratorOpts<Relation> | undefined) => RelationClassDecorator<DTO>;

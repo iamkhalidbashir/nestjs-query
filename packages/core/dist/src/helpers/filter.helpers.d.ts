@@ -1,0 +1,24 @@
+import { Filter, FilterFieldComparison, FilterComparisons } from '../interfaces';
+import { QueryFieldMap } from './query.helpers';
+export declare type LikeComparisonOperators = 'like' | 'notLike' | 'iLike' | 'notILike';
+export declare type InComparisonOperators = 'in' | 'notIn';
+export declare type BetweenComparisonOperators = 'between' | 'notBetween';
+export declare type RangeComparisonOperators = 'gt' | 'gte' | 'lt' | 'lte';
+export declare type BooleanComparisonOperators = 'eq' | 'neq' | 'is' | 'isNot';
+export declare const isLikeComparisonOperator: (op: unknown) => op is LikeComparisonOperators;
+export declare const isInComparisonOperators: (op: unknown) => op is InComparisonOperators;
+export declare const isBetweenComparisonOperators: (op: unknown) => op is BetweenComparisonOperators;
+export declare const isRangeComparisonOperators: (op: unknown) => op is RangeComparisonOperators;
+export declare const isBooleanComparisonOperators: (op: unknown) => op is BooleanComparisonOperators;
+export declare const isComparison: <DTO, K extends keyof DTO>(maybeComparison?: (DTO[K] extends string | String ? import("../interfaces").StringFieldComparisons : DTO[K] extends boolean | Boolean ? import("../interfaces").BooleanFieldComparisons : DTO[K] extends number | bigint | symbol | RegExp | Date | (string | number | bigint | boolean | symbol | RegExp | Date | null | undefined)[] ? import("../interfaces").CommonFieldComparisonType<DTO[K]> : DTO[K] extends (infer U)[] ? import("../interfaces").CommonFieldComparisonType<U> | Filter<U> : Filter<DTO[K]> | import("../interfaces").CommonFieldComparisonType<DTO[K]>) | Filter<DTO[K]> | undefined) => maybeComparison is DTO[K] extends string | String ? import("../interfaces").StringFieldComparisons : DTO[K] extends boolean | Boolean ? import("../interfaces").BooleanFieldComparisons : DTO[K] extends number | bigint | symbol | RegExp | Date | (string | number | bigint | boolean | symbol | RegExp | Date | null | undefined)[] ? import("../interfaces").CommonFieldComparisonType<DTO[K]> : DTO[K] extends (infer U)[] ? import("../interfaces").CommonFieldComparisonType<U> | Filter<U> : Filter<DTO[K]> | import("../interfaces").CommonFieldComparisonType<DTO[K]>;
+export declare const getFilterFieldComparison: <DTO, K extends keyof DTO>(obj: FilterComparisons<DTO>, field: K) => (DTO[K] extends string | String ? import("../interfaces").StringFieldComparisons : DTO[K] extends boolean | Boolean ? import("../interfaces").BooleanFieldComparisons : DTO[K] extends number | bigint | symbol | RegExp | Date | (string | number | bigint | boolean | symbol | RegExp | Date | null | undefined)[] ? import("../interfaces").CommonFieldComparisonType<DTO[K]> : DTO[K] extends (infer U)[] ? import("../interfaces").CommonFieldComparisonType<U> | Filter<U> : Filter<DTO[K]> | import("../interfaces").CommonFieldComparisonType<DTO[K]>) & {
+    and?: Filter<DTO[K]>[] | undefined;
+    or?: Filter<DTO[K]>[] | undefined;
+} & FilterComparisons<DTO[K]>;
+export declare const transformFilter: <From, To>(filter: Filter<From> | undefined, fieldMap: QueryFieldMap<From, To, keyof To>) => Filter<To> | undefined;
+export declare const mergeFilter: <T>(base: Filter<T>, source: Filter<T>) => Filter<T>;
+export declare const getFilterFields: <DTO>(filter: Filter<DTO>) => string[];
+export declare const getFilterComparisons: <DTO, K extends keyof DTO>(filter: Filter<DTO>, key: K) => (DTO[K] extends string | String ? import("../interfaces").StringFieldComparisons : DTO[K] extends boolean | Boolean ? import("../interfaces").BooleanFieldComparisons : DTO[K] extends number | bigint | symbol | RegExp | Date | (string | number | bigint | boolean | symbol | RegExp | Date | null | undefined)[] ? import("../interfaces").CommonFieldComparisonType<DTO[K]> : DTO[K] extends (infer U)[] ? import("../interfaces").CommonFieldComparisonType<U> | Filter<U> : Filter<DTO[K]> | import("../interfaces").CommonFieldComparisonType<DTO[K]>)[];
+export declare const getFilterOmitting: <DTO>(filter: Filter<DTO>, key: keyof DTO) => Filter<DTO>;
+export declare function applyFilter<DTO>(dto: DTO[], filter: Filter<DTO>): DTO[];
+export declare function applyFilter<DTO>(dto: DTO, filter: Filter<DTO>): boolean;

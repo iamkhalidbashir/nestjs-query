@@ -1,0 +1,20 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.FederationResolver = exports.Relatable = exports.ReferenceResolver = exports.DeleteResolver = exports.UpdateResolver = exports.ReadResolver = exports.CreateResolver = exports.CRUDResolver = void 0;
+var crud_resolver_1 = require("./crud.resolver");
+Object.defineProperty(exports, "CRUDResolver", { enumerable: true, get: function () { return crud_resolver_1.CRUDResolver; } });
+var create_resolver_1 = require("./create.resolver");
+Object.defineProperty(exports, "CreateResolver", { enumerable: true, get: function () { return create_resolver_1.CreateResolver; } });
+var read_resolver_1 = require("./read.resolver");
+Object.defineProperty(exports, "ReadResolver", { enumerable: true, get: function () { return read_resolver_1.ReadResolver; } });
+var update_resolver_1 = require("./update.resolver");
+Object.defineProperty(exports, "UpdateResolver", { enumerable: true, get: function () { return update_resolver_1.UpdateResolver; } });
+var delete_resolver_1 = require("./delete.resolver");
+Object.defineProperty(exports, "DeleteResolver", { enumerable: true, get: function () { return delete_resolver_1.DeleteResolver; } });
+var reference_resolver_1 = require("./reference.resolver");
+Object.defineProperty(exports, "ReferenceResolver", { enumerable: true, get: function () { return reference_resolver_1.ReferenceResolver; } });
+var relations_1 = require("./relations");
+Object.defineProperty(exports, "Relatable", { enumerable: true, get: function () { return relations_1.Relatable; } });
+var federation_1 = require("./federation");
+Object.defineProperty(exports, "FederationResolver", { enumerable: true, get: function () { return federation_1.FederationResolver; } });
+//# sourceMappingURL=index.js.map
